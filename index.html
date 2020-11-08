@@ -1,0 +1,83 @@
+<html>
+<body>
+
+<!--- Original by Nate. Edited by Anwar --->
+
+<style>
+	p     { display: table-row;  }
+	label { display: table-cell; }
+	input { display: table-cell; }
+	textarea { display: table-cell; }
+</style>
+
+<script>
+function generate() {  
+	var a = document.getElementById('txid').value;
+	var b = document.getElementById('txindex').value; 
+	var c = document.getElementById('ipPort').value; 
+	var d = document.getElementById('ownerAdd').value; 
+	var e = document.getElementById('opPubkey').value; 
+	var f = document.getElementById('opReward').value;
+	var g = document.getElementById('payAdd').value;
+	var h = document.getElementById('feeSourceadd').value;
+	
+	document.getElementById("result").value = 'protx register' + ' ' + a + ' ' + b + ' ' + c + ' ' + d + ' ' + e + ' ' + '""' + ' ' + f + ' ' + g + ' ' + h;	
+}
+
+function copy() {
+  var copyText = document.getElementById("result");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  document.getElementById("copied").innerHTML = 'Copied!';
+}
+
+function reset() {
+  document.getElementById("one").reset();
+}
+</script>
+
+<form id="one">
+<p>
+  <label>Transaction ID:</label> <input type="text" name="transid" id="txid" size="118"> <br>
+</p>
+
+<p>
+  <label>Transaction Index:</label> <input type="text" name="transindex" id="txindex" size="118"> <br>
+</p>
+
+<p>
+  <label>IP and Port:</label> <input type="text" name="ipandport" id="ipPort" size="118" placeholder="192.168.1.1:8168"> <br>
+</p>
+
+<p>
+  <label>Owner Address:</label> <input type="text" name="owneradd" id="ownerAdd" size="118"> <br>
+</p>
+
+<p>
+  <label>Operator PubKey:</label> <input type="text" name="oppubkey" id="opPubkey" size="118"> <br>
+</p>
+
+<p>
+  <label>Operator Reward:</label> <input type="text" name="opreward" id="opReward" size="118"> <br>
+</p>
+
+<p>
+  <label>Payout Address:</label> <input type="text" name="payadd" id="payAdd" size="118"> <br>
+</p>
+
+<p>
+  <label>Fee Source Address:</label> <input type="text" name="feesouadd" id="feeSourceadd" size="118"> <br>
+</p>
+  
+  <input type="button" onclick="generate()" value="Generate"/> 
+  <input type="button" onclick="copy()" value="Copy"><p id="copied"></p>
+  <br>
+  <textarea id="result" style="width:850px; height:120px;" wrap="hard" readonly="yes"/></textarea>
+  <br>
+  <input type="button" onclick="reset()" value="Reset" />
+
+</form>
+
+</body>
+</html>
